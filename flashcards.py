@@ -8,7 +8,20 @@ def load_flashcards(filename):
         flashcards = json.load(file)
         return flashcards
 
-flashcards = load_flashcards('flashcards.json')
-print(flashcards)
+def run_quiz(flashcards):
+    """Ask each flashcard question and check the user's answer."""
+    score = 0
+    for card in flashcards:
+        print("\n" + card['question'])
+        user_answer = input("Your answer: ")
 
+        if user_answer.strip().lower() == card['answer'].strip().lower():
+            print("Correct!")
+            score += 1
+        else:
+            print("Incorrect!")
+    print(f"Your final score is: {score}/{len(flashcards)}")
+    return score
 
+flashcards = load_flashcards('cards.json')
+run_quiz(flashcards)
