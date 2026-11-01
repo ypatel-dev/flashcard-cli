@@ -1,1 +1,5 @@
-
+   [
+     {"question": "What does HTTP stand for?", "answer": "HyperText Transfer Protocol"},
+     {"question": "Which Python keyword defines a function?", "answer": "def"},
+     {"question": "What does JSON stand for?", "answer": "JavaScript Object Notation"}
+   ]
