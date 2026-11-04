@@ -1,6 +1,7 @@
 # Yesha Patel
 # Nov 1, 2026
 import json
+import random
 
 def load_flashcards(filename):
     """Load flashcards from a JSON file and return a list of cards."""
@@ -11,7 +12,9 @@ def load_flashcards(filename):
 def run_quiz(flashcards):
     """Ask each flashcard question and check the user's answer."""
     score = 0
-    for card in flashcards:
+    deck = flashcards[:]
+    random.shuffle(deck)  # Shuffle the deck to randomize question order
+    for card in deck:
         print("\n" + card['question'])
         user_answer = input("Your answer: ")
 
@@ -20,7 +23,7 @@ def run_quiz(flashcards):
             score += 1
         else:
             print("Incorrect!")
-    print(f"Your final score is: {score}/{len(flashcards)}")
+    print(f"Your final score is: {score}/{len(deck)}")
     return score
 
 flashcards = load_flashcards('cards.json')
