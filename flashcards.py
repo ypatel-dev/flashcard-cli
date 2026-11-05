@@ -2,6 +2,7 @@
 # Nov 1, 2026
 import json
 import random
+import sys
 
 def load_flashcards(filename):
     """Load flashcards from a JSON file and return a list of cards."""
@@ -26,5 +27,10 @@ def run_quiz(flashcards):
     print(f"Your final score is: {score}/{len(deck)}")
     return score
 
-flashcards = load_flashcards('cards.json')
-run_quiz(flashcards)
+def main():
+    path = sys.argv[1] if len(sys.argv) > 1 else 'cards.json'
+    flashcards = load_flashcards(path)
+    run_quiz(flashcards)
+
+if __name__ == "__main__":
+    main()
